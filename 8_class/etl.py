@@ -1,8 +1,12 @@
 import pandas as pd
 import os
 import glob
+from  decorator_time import time_measure_decorator
+
+
 
 #uma funcao de extract que lê e consolida o json
+
 def extract_concat_json(path:str) -> pd.DataFrame:
     arquivo_json =glob.glob(os.path.join(path,'*.json'))
     df_list =[pd.read_json(arquivo) for arquivo in arquivo_json]
@@ -24,7 +28,7 @@ def carregar_dados(df: pd.DataFrame, format_output: list):
         else:
             print("Nenhum formato condiz com o esperado")
 
-
+@time_measure_decorator
 def pipeline_calculo_kpi_vendas(pasta_argumento: str, saida: list):
     data_frame =extract_concat_json(pasta_argumento)
     data_frame_cal = calculate_kpi_total_de_vendas(data_frame)
