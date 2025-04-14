@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "classes-s3"
+version = "0.1.0"
+description = ""
+authors = ["Victor <vitor.passos@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115.6"
+faker = "^33.3.1"
+pandas = "^2.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
